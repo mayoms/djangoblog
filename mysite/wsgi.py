@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 """
 
 import newrelic.agent
-newrelic.agent.initialize()
+newrelic.agent.initialize('../newrelic.ini')
 
 import os
 
