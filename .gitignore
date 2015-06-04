@@ -1,0 +1,6 @@
+*.pyc
+__pycache__
+*.sqlite3
+.DS_Store
+venv/
+mysite/local_settings.py
