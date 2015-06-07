@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	    <div class="post">
+	    	{% if post.published_date %}
+		        <div class="date">
+		            Published: {{ post.published_date }}
+		        </div>
+		    {% else %}
+		    	<a class='btn btn-default' href={% url 'blog.views.post_publish' pk=post.pk %}>Publish</a>
+		    {% endif %}
+		    {% if post.updated_date %}
+		    	<div class='updated'>
+		    		Last Update: {{ post.updated_date }}
+		    	</div>
+		    {% endif %}
+		    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		    <a class='btn btn-default' href="{% url 'post_remove' pk=post.pk %}"><i class='glyphicon glyphicon-remove'></i></a>
+	        <h1>{{ post.title }}</h1>
+	        <p>{{ post.text|linebreaks }}</p>
+	    </div>
+{% endblock content %}

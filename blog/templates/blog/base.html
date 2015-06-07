@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A simple blog.</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+	<div class='page-header'>
+		<a href="{% url 'blog.views.post_new' %}" class="top-menu"><i class="glyphicon glyphicon-plus"></i></a>
+		<a href="{% url 'post_draft_list' %}" class='top-menu'><i class='glyphicon glyphicon-edit'></i></a>
+        <h1><a href="/">Little Blog Platform</a></h1>
+    </div>
+    <div>
+		<div class="content container">
+		    <div class="row">
+		        <div class="col-md-8">
+		        	{% block content %}
+		        	{% endblock %}
+		        </div>
+		    </div>
+		</div>
+	</div>
+</body>
+</html>
