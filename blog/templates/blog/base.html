@@ -11,9 +11,13 @@
 </head>
 <body>
 	<div class='page-header'>
+		{% if user.is_authenticated %}
 		<a href="{% url 'blog.views.post_new' %}" class="top-menu"><i class="glyphicon glyphicon-plus"></i></a>
 		<a href="{% url 'post_draft_list' %}" class='top-menu'><i class='glyphicon glyphicon-edit'></i></a>
-        <h1><a href="/">Little Blog Platform</a></h1>
+		{% else %}
+		<a href="{% url 'django.contrib.auth.views.login' %}" class='top-menu'><i class='glyphicon glyphicon-lock'></i></a>
+		{% endif %}
+        <h1><a href="{% url 'blog.views.post_list' %}">Little Blog Platform</a></h1>
     </div>
     <div>
 		<div class="content container">
